@@ -6,12 +6,10 @@ Santi
 
 23 January 2026
 
-
 '''
 
 import numpy as np
 import pandas as pd
-
 
 def get_polarizability(wavelength_nm, atom="Rb", orbital=None):
     """Get the polarizability of Rb or Cs at a specific wavelength.
@@ -40,5 +38,5 @@ def get_polarizability(wavelength_nm, atom="Rb", orbital=None):
     alpha = df["alpha_0"].to_numpy()
 
     # interpolate to find the polarizability at the given wavelength
-    polarizability = np.interp(round(wavelength_nm, 2), df["wavelength_nm"], alpha)
+    polarizability = np.interp(np.round(wavelength_nm, 2), df["wavelength_nm"], alpha)
     return polarizability
